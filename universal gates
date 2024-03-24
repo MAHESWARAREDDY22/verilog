@@ -1,0 +1,23 @@
+//source code
+module univ_gates(
+    input a,b,
+    output y0,y1
+    );
+    assign y0 = ~(a&b);
+    assign y1 = ~(a|b);
+endmodule
+
+  // test bench
+  module univ_gates_tb();
+reg a,b;
+wire y0,y1;
+univ_gates uut(a,b,y0,y1);
+initial
+begin
+     a = 0;b = 0;
+  #10 a = 0;b = 1;
+  #10 a = 1;b = 0;
+  #10 a = 1;b = 1;
+
+end
+endmodule

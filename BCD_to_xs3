@@ -1,1 +1,46 @@
+//source file
+module excess3(
+  input [3:0] BCD,
+  output [3:0] excess3
+);
 
+  assign excess3 = BCD + 3;
+
+endmodule
+
+
+//test bench
+module excess3_tb();
+
+  reg [3:0] BCD;
+  wire [3:0] excess3;
+
+  excess3 u1(
+    .BCD(BCD),
+    .excess3(excess3)
+  );
+
+  initial begin
+    BCD = 0;
+    #10;
+    BCD = 1;
+    #10;
+    BCD = 2;
+    #10;
+    BCD = 3;
+    #10;
+    BCD = 4;
+    #10;
+    BCD = 5;
+    #10;
+    BCD = 6;
+    #10;
+    BCD = 7;
+    #10;
+    BCD = 8;
+    #10;
+    BCD = 9;
+    #10;
+    $finish;
+  end
+endmodule

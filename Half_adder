@@ -1,0 +1,29 @@
+//source code
+module half_add(a,b,s,c);
+    input a,b;
+    output s,c;
+    
+    assign s=a^b;
+    assign c=a|b;
+    
+endmodule
+// test bench
+module half_add_tb;
+
+reg a,b;
+wire s,c;
+
+half_add uut(.a(a),.b(b),.s(s),.c(c));
+initial
+begin
+a=0;b=0;
+#10
+a=0;b=1;
+#10
+a=1;b=0;
+#10
+a=1;b=1;
+#10
+$finish;
+end
+endmodule
